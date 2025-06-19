@@ -11,17 +11,23 @@ SpellBook::SpellBook( const SpellBook &var)
 
 SpellBook::~SpellBook()
 {
+	_spells.clear();
+//	std::map<std::string, ASpell*>::iterator	it;
+//
+//	it = _spells.begin();
+//	while (it != _spells.end())
+//	{
+//	//	_spells.erase(it->first);
+//		delete _spells[it->first];
+//	}
 }
 
 void	SpellBook::learnSpell(ASpell* spell)
 {
 	if (_spells.find(spell->getName()) == _spells.end())
 	{
-		std::cout << "before segfault" << std::endl;
-
 		_spells.insert(std::pair<std::string, ASpell*>(spell->getName(), spell->clone()));
-	//	_spells[spell->getName()] = spell->clone();
-		std::cout << "AFTER segfault" << std::endl;
+		//_spells[spell->getName()] = spell->clone();
 	}
 }
 

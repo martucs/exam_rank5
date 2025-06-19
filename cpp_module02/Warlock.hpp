@@ -26,7 +26,7 @@ class	Warlock
 	private:
 		std::string	_name;
 		std::string	_title;
-		SpellBook*	_spellBook;
+		SpellBook	_spellBook;
 		
 		Warlock();
 		Warlock( const Warlock& );

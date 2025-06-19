@@ -2,8 +2,8 @@
 # define TARGETGENERATOR_HPP
 
 # include <iostream>
-# include <map>
 # include "ATarget.hpp"
+# include <map>
 class ATarget;
 
 class	TargetGenerator

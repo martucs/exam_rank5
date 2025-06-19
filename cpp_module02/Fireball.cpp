@@ -13,7 +13,7 @@ Fireball::Fireball( const Fireball &var)
 
 ASpell*	Fireball::clone() const
 {
-	return (new Fireball);
+	return (new Fireball(*this));
 }
 
 Fireball::~Fireball()

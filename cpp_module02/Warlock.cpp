@@ -1,4 +1,5 @@
 #include "Warlock.hpp"
+#include "ASpell.hpp"
 
 Warlock::Warlock()
 {
@@ -43,18 +44,24 @@ void	Warlock::introduce(void) const
 
 void	Warlock::learnSpell(ASpell* spell)
 {
-	_spellBook->learnSpell(spell);
+	_spellBook.learnSpell(spell);
 }
 
 void	Warlock::forgetSpell(const std::string spellName)
 {
-	_spellBook->forgetSpell(spellName);
+	_spellBook.forgetSpell(spellName);
 }
 
 void	Warlock::launchSpell(const std::string spellName, ATarget& target)
 {
-	if (_spellBook->createSpell(spellName) == NULL)
-	_spellBook->createSpell(spellName);
+	ASpell*	existingSpell;
+
+	existingSpell = _spellBook.createSpell(spellName);
+	if (existingSpell != NULL)
+	{
+		target.getHitBySpell(*existingSpell);
+		delete existingSpell;
+	}
 }
 
 Warlock&	Warlock::operator=(const Warlock& var)

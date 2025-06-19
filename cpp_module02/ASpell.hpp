@@ -13,7 +13,7 @@ class	ASpell
 		ASpell( const ASpell& );
 		virtual ~ASpell();
 		
-		std::string	getName() const;
+		const std::string&	getName() const;
 		std::string	getEffects() const;
 		void		launch(const ATarget&);
 		virtual ASpell*	clone() const = 0;

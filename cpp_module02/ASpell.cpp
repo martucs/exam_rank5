@@ -19,7 +19,7 @@ ASpell::~ASpell()
 {
 }
 
-std::string	ASpell::getName() const
+const std::string&	ASpell::getName() const
 {
 	return (_name);
 }
