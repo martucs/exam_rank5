@@ -43,30 +43,18 @@ void	Warlock::introduce(void) const
 
 void	Warlock::learnSpell(ASpell* spell)
 {
-	if (_spells.find(spell->getName()) == _spells.end())
-	{
-//		std::cout << "inserting spell " << spell->getName() << std::endl;
-		_spells.insert(std::pair<std::string, ASpell*>(spell->getName(), spell));
-	}
+	_spellBook->learnSpell(spell);
 }
 
-void	Warlock::forgetSpell(std::string spellName)
+void	Warlock::forgetSpell(const std::string spellName)
 {
-	if (_spells.find(spellName) != _spells.end())
-	{
-//		std::cout << "forgetting spell " << spellName << std::endl;
-		_spells.erase(spellName);
-	}
+	_spellBook->forgetSpell(spellName);
 }
 
-void	Warlock::launchSpell(std::string spellName, ATarget& target)
+void	Warlock::launchSpell(const std::string spellName, ATarget& target)
 {
-
-	if (_spells.find(spellName) != _spells.end())
-	{
-	//	std::cout << "launching spell " << spellName << std::endl;
-		target.getHitBySpell(*_spells[spellName]);
-	}
+	if (_spellBook->createSpell(spellName) == NULL)
+	_spellBook->createSpell(spellName);
 }
 
 Warlock&	Warlock::operator=(const Warlock& var)

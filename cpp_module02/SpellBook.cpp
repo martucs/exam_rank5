@@ -15,34 +15,39 @@ SpellBook::~SpellBook()
 
 void	SpellBook::learnSpell(ASpell* spell)
 {
-	if (_spellBook.find(spell->getName()) == _spellBook.end())
+	if (_spells.find(spell->getName()) == _spells.end())
 	{
-		_spellBook.insert(std::pair<std::string, ASpell*>(spell->getName(), spell));
+		std::cout << "before segfault" << std::endl;
+
+		_spells.insert(std::pair<std::string, ASpell*>(spell->getName(), spell->clone()));
+	//	_spells[spell->getName()] = spell->clone();
+		std::cout << "AFTER segfault" << std::endl;
 	}
 }
 
-void	SpellBook::forgetSpell(std::string spellName)
+void	SpellBook::forgetSpell(std::string const& spellName)
 {
-	if (_spellBook.find(spellName) != _spellBook.end())
+	if (_spells.find(spellName) != _spells.end())
 	{
-		_spellBook.erase(spellName);
+		delete _spells[spellName];
+		_spells.erase(spellName);
 	}
 }
 
-void	SpellBook::launchSpell(std::string spellName, ATarget& target)
+ASpell*	SpellBook::createSpell(std::string const& spellName)
 {
-
-	if (_spellBook.find(spellName) != _spellBook.end())
+	if (_spells.find(spellName) != _spells.end())
 	{
-		target.getHitBySpell(*_spellBook[spellName]);
+		return (_spells[spellName]->clone());
 	}
+	return (NULL);
 }
 
 SpellBook&	SpellBook::operator=(const SpellBook& var)
 {
 	if (this != &var)
 	{
-		//_spellBook;
+		//_spells;
 	}
 	return (*this);
 }

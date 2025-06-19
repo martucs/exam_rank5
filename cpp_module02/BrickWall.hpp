@@ -10,9 +10,9 @@ class	BrickWall: public ATarget
 	public:
 		BrickWall();
 		BrickWall( const BrickWall& );
-		~BrickWall();
+		virtual ~BrickWall();
 		
-		ATarget*	clone() const;
+		virtual ATarget*	clone() const;
 
 		BrickWall&		operator=( const BrickWall& );
 };

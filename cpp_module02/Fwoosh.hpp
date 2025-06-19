@@ -9,9 +9,9 @@ class	Fwoosh: public ASpell
 	public:
 		Fwoosh();
 		Fwoosh( const Fwoosh& );
-		~Fwoosh();
+		virtual ~Fwoosh();
 		
-		ASpell*	clone() const;
+		virtual ASpell*	clone() const;
 		Fwoosh&		operator=( const Fwoosh& );
 };
 

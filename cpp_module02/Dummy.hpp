@@ -11,9 +11,9 @@ class	Dummy: public ATarget
 	public:
 		Dummy();
 		Dummy( const Dummy& );
-		~Dummy();
+		virtual ~Dummy();
 		
-		ATarget*	clone() const;
+		virtual ATarget*	clone() const;
 
 		Dummy&		operator=( const Dummy& );
 };

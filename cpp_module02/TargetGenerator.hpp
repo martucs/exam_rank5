@@ -2,7 +2,8 @@
 # define TARGETGENERATOR_HPP
 
 # include <iostream>
-
+# include <map>
+# include "ATarget.hpp"
 class ATarget;
 
 class	TargetGenerator
@@ -18,6 +19,7 @@ class	TargetGenerator
 		ATarget*	createTarget(std::string const& type);
 
 	private:
+		std::map<std::string, ATarget*>		_targets;
 		TargetGenerator( const TargetGenerator& );
 		TargetGenerator&	operator=( const TargetGenerator& );
 };

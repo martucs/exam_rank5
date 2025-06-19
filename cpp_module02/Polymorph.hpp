@@ -9,9 +9,9 @@ class	Polymorph: public ASpell
 	public:
 		Polymorph();
 		Polymorph( const Polymorph& );
-		~Polymorph();
+		virtual ~Polymorph();
 		
-		ASpell*	clone() const;
+		virtual ASpell*	clone() const;
 		Polymorph&		operator=( const Polymorph& );
 };
 

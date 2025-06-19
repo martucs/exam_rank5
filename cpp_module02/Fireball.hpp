@@ -9,9 +9,9 @@ class	Fireball: public ASpell
 	public:
 		Fireball();
 		Fireball( const Fireball& );
-		~Fireball();
+		virtual ~Fireball();
 		
-		ASpell*	clone() const;
+		virtual ASpell*	clone() const;
 		Fireball&		operator=( const Fireball& );
 };
 
