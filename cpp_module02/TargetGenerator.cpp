@@ -26,7 +26,7 @@ void	TargetGenerator::forgetTargetType(std::string const& targetName)
 {
 	if (_targets.find(targetName) != _targets.end())
 	{
-		delete _targets[targetName];
+	//	delete _targets[targetName];
 		_targets.erase(targetName);
 	}
 }
