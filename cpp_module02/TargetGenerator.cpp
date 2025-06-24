@@ -17,8 +17,8 @@ void	TargetGenerator::learnTargetType(ATarget* target)
 {
 	if (_targets.find(target->getType()) == _targets.end())
 	{
-		//_targets.insert(std::pair<std::string, ATarget*>(target->getType(), target));
-		_targets[target->getType()] = target->clone();
+		_targets.insert(std::pair<std::string, ATarget*>(target->getType(), target));
+		//_targets[target->getType()] = target->clone();
 	}
 }
 

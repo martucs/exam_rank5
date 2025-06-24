@@ -35,5 +35,6 @@ int main()
   delete wall;
   delete polymorph;
   delete model1;
+  delete fireball;
 }
 

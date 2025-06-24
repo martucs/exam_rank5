@@ -11,7 +11,7 @@
 #include "Fireball.hpp"
 
 
-int main()
+/*int main()
 {
   Warlock richard("Richard", "foo");
   richard.setTitle("Hello, I'm Richard the Warlock!");
@@ -31,5 +31,5 @@ int main()
   richard.introduce();
   richard.launchSpell("Polymorph", *wall);
   richard.launchSpell("Fireball", *wall);
-}
+}*/
 
